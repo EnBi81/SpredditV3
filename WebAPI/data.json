@@ -1,0 +1,838 @@
+{
+  "Users": [
+    {
+      "Username": "Agata",
+      "Password": "123123123",
+      "DateOfBirth": "2002-10-20T00:00:00"
+    },
+    {
+      "Username": "bety1",
+      "Password": "123456789",
+      "DateOfBirth": "2002-11-06T00:00:00"
+    },
+    {
+      "Username": "eeeee",
+      "Password": "1",
+      "DateOfBirth": "2008-06-09T00:00:00"
+    },
+    {
+      "Username": "sgsgsg",
+      "Password": "2",
+      "DateOfBirth": "2008-11-06T00:00:00"
+    }
+  ],
+  "Posts": [
+    {
+      "title": "Hello world",
+      "body": "What a beautiful day",
+      "user": {
+        "Username": "Agata",
+        "Password": "123123123",
+        "DateOfBirth": "2002-10-20T00:00:00"
+      },
+      "id": 1,
+      "VoteScore": 0,
+      "Votes": [
+        {
+          "Username": "Agata",
+          "Type": 1
+        },
+        {
+          "Username": "eeeee",
+          "Type": -1
+        }
+      ]
+    },
+    {
+      "title": "Good Night",
+      "body": "I am going to bed",
+      "user": {
+        "Username": "Agata",
+        "Password": "123123123",
+        "DateOfBirth": "2002-10-20T00:00:00"
+      },
+      "id": 2,
+      "VoteScore": 0,
+      "Votes": []
+    },
+    {
+      "title": "Good Night",
+      "body": "I am going to bed",
+      "user": {
+        "Username": "Agata",
+        "Password": "123123123",
+        "DateOfBirth": "2002-10-20T00:00:00"
+      },
+      "id": 3,
+      "VoteScore": 0,
+      "Votes": []
+    },
+    {
+      "title": "Life is good",
+      "body": "Good night",
+      "user": {
+        "Username": "Agata",
+        "Password": "123123123",
+        "DateOfBirth": "2002-10-20T00:00:00"
+      },
+      "id": 4,
+      "VoteScore": -1,
+      "Votes": [
+        {
+          "Username": "eeeee",
+          "Type": -1
+        }
+      ]
+    },
+    {
+      "title": "hello",
+      "body": "its nice",
+      "user": {
+        "Username": "Agata",
+        "Password": "123123123",
+        "DateOfBirth": "2002-10-20T00:00:00"
+      },
+      "id": 5,
+      "VoteScore": 0,
+      "Votes": []
+    },
+    {
+      "title": "A new post",
+      "body": "hellooo",
+      "user": {
+        "Username": "Agata",
+        "Password": "123123123",
+        "DateOfBirth": "2002-10-20T00:00:00"
+      },
+      "id": 6,
+      "VoteScore": -1,
+      "Votes": [
+        {
+          "Username": "eeeee",
+          "Type": -1
+        }
+      ]
+    },
+    {
+      "title": "cool",
+      "body": "lololo",
+      "user": {
+        "Username": "Agata",
+        "Password": "123123123",
+        "DateOfBirth": "2002-10-20T00:00:00"
+      },
+      "id": 7,
+      "VoteScore": 1,
+      "Votes": [
+        {
+          "Username": "Agata",
+          "Type": 1
+        }
+      ]
+    }
+  ],
+  "Comments": [
+    {
+      "Body": "Woow cool",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": null,
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": []
+      },
+      "Username": null,
+      "Id": 1
+    },
+    {
+      "Body": "Woow cool",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": []
+      },
+      "Username": null,
+      "Id": 2
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 3
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 4
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 5
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 6
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 7
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 8
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 9
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 10
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 11
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 12
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 13
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 14
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 15
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 16
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 17
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 18
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 19
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 20
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 21
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 22
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 23
+    },
+    {
+      "Body": "hejka",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 24
+    },
+    {
+      "Body": "nice",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 25
+    },
+    {
+      "Body": "nice",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": 0,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 26
+    },
+    {
+      "Body": "cool",
+      "Post": {
+        "title": "Hello world",
+        "body": "What a beautiful day",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 1,
+        "VoteScore": -2,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": -1
+          },
+          {
+            "Username": "eeeee",
+            "Type": -1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 27
+    },
+    {
+      "Body": "woo extra",
+      "Post": {
+        "title": "cool",
+        "body": "lololo",
+        "user": {
+          "Username": "Agata",
+          "Password": "123123123",
+          "DateOfBirth": "2002-10-20T00:00:00"
+        },
+        "id": 7,
+        "VoteScore": 1,
+        "Votes": [
+          {
+            "Username": "Agata",
+            "Type": 1
+          }
+        ]
+      },
+      "Username": "Agata",
+      "Id": 28
+    }
+  ]
+}
