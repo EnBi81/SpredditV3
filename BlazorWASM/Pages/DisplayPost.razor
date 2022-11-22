@@ -1,0 +1,134 @@
+﻿@page "/Post/{id:int}"
+@using HttpClients.ClientInterfaces
+@using SharedDomain.DTOs
+@using SharedDomain.Models
+@using System.Security.Claims
+@inject IPostService postService
+
+@if (post != null)
+{
+    <div class="main">
+        <div class="column">
+            <span class="titleLabel">@post.Title</span>
+            <div class="middle">
+                <textarea readonly>@post.Body</textarea>
+            </div>
+        </div>
+        <div class="column">
+            <div class>
+                <button @onclick="UpVote">
+                    <img src="upVote.png"/>
+                </button>
+            </div>
+            <div>
+                <label>@upVotes</label>
+            </div>
+            <div>
+                <label>@downVote</label>
+            </div>
+            <div >
+                <button @onclick="DownVote">
+                    <img src="downVote.png"/>
+                </button>
+            </div>
+        </div>
+        <div class="column">
+           @if (IsLogged)
+           {
+                <div class="writeComment">
+                    <input style="width: 80%" type="text" @bind="Comment" placeholder="Write a comment"/>
+                    <button @onclick="WriteComment" >Post</button>
+                    </div>
+           }
+           <div class="displayComments">
+               @foreach (var comment in comments)
+               {
+                   <div class="comment">
+                       <div class="username">@comment.Username</div>
+                       <div class="body">@comment.Body</div>
+                   </div>
+               }
+           </div>
+        </div>
+       
+            </div>
+}
+else
+{
+    <span>Post could not be found</span>
+}
+
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
+    [Parameter]
+    public int Id { get; set; }
+
+    private Post post { get; set; }
+    private int upVotes { get; set; }
+    private int downVote { get; set; }
+    private IEnumerable<Comment>? comments;
+    private string? Username { get; set; }
+    private bool IsLogged => Username is not null; 
+    private string Comment { get; set; }
+
+    private string msg = "";
+    
+    protected override async Task OnInitializedAsync()
+    {
+        msg = "";
+        try
+        {
+            post = await postService.GetByIdAsync(Id);
+            upVotes = await postService.GetNumberOfUpVotes(Id);
+            downVote = await postService.GetNumberOfDownVotes(Id);
+            comments = (await postService.GetAllComments(Id)).Reverse();
+            
+            var authState = await AuthenticationStateTask;
+            ClaimsPrincipal principal = authState.User;
+            Username = (from claim in principal.Claims where claim.Type == "Username" select claim.Value).FirstOrDefault();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    } 
+    private async Task UpVote()
+    {
+        if(!IsLogged)
+            return;
+        VoteDTO dto = new VoteDTO
+        {
+            Username = Username
+        };
+        await postService.UpVote(Id,dto);
+        await OnInitializedAsync();
+    }
+    
+    private async Task DownVote()
+    {
+        if(!IsLogged)
+        return;
+        VoteDTO dto = new VoteDTO
+        {
+            Username = Username
+        };
+        await postService.DownVote(Id,dto);
+        await OnInitializedAsync();
+    }
+
+    private async Task WriteComment()
+    {
+        if (string.IsNullOrWhiteSpace(Comment))
+        {
+            return;
+        }
+        CommentToSendDTO comment = new CommentToSendDTO(Comment, Username, Id);
+        await postService.CommentPost(comment);
+        Comment = "";
+        await OnInitializedAsync();
+    }
+    
+    }

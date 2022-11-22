@@ -1,0 +1,61 @@
+﻿@page "/Register"
+@using BlazorWASM.Auth
+@using SharedDomain.Models
+@inject IAuthService authService
+@inject NavigationManager NavManager
+
+<h3>Register</h3>
+
+<form>
+    <div>
+        <label for="username">Username</label>
+        <input @bind="username" type="text" id="username">
+    </div>
+    
+    <div>
+        <label for="password">Password</label>
+        <input @bind="pass" type="password" id="password">
+    </div>
+
+    <div>
+        <label for="dob">Date of birth</label>
+        <input @bind="dob" type="date" id="dob">
+    </div>
+    
+    <div>
+        <input type="button" @onclick="Submit" value="Register">
+    </div>
+
+    <span style="color: red">@errorMessage</span>
+</form>
+
+@code {
+    string username = string.Empty;
+    string pass = String.Empty;
+    DateTime dob = DateTime.Now.AddYears(-14);
+    string errorMessage = "";
+
+    private async Task Submit()
+    {
+        errorMessage = "";
+        
+        var user = new User
+        {
+            Username = username,
+            Password = pass,
+            DateOfBirth = dob
+        };
+
+        try
+        {
+            await authService.RegisterAsync(user);
+            await Task.Delay(200);
+            NavManager.NavigateTo("/Login");
+        }
+        catch (Exception e)
+        {
+            errorMessage = e.Message;
+            Console.WriteLine(e);
+        }
+    }
+}

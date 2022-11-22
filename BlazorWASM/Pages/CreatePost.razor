@@ -1,0 +1,83 @@
+﻿@page "/post/create"
+@using HttpClients.ClientInterfaces
+@using SharedDomain.DTOs
+@using SharedDomain.Models
+@using System.Security.Claims
+@inject IPostService postService
+@inject NavigationManager navMgr
+
+
+<AuthorizeView>
+    <Authorized>
+        <div class="create-box-wrapper">
+            <div class="modal-background"></div>
+
+            <div class="modal-box">
+                <h4>Create Post</h4>
+                <div class="label">
+                    <input style="font-size: 25px" type="text" @bind="title" placeholder="Title"/>
+                </div>
+                <div class="label">
+                    <textarea class="body" @bind="body" placeholder="Tell us what do you thing about :)"></textarea>
+                </div>
+                @if (!string.IsNullOrEmpty(resultMsg))
+                {
+                    <div class="label" style="text-align: center">
+                        <label style="color:red">@resultMsg</label>
+                    </div>
+                }
+
+                <div class="button-row">
+                    <button @onclick="Create" disabled="@(string.IsNullOrEmpty(title) && string.IsNullOrEmpty(body))" class="acceptbtn">Create</button>
+                    <button @onclick="@(() => navMgr.NavigateTo("/posts"))" class="acceptbtn">Cancle</button>
+                </div>
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="create-box-wrapper">
+            <div class="modal-background"></div>
+            <div class="modal-box">
+                <div>
+                    <h5>Sorry, you have to be logged in to create a post :(</h5>
+                    <div class="button-row">
+                        <button @onclick="@(() => navMgr.NavigateTo("/posts"))" class="acceptbtn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </NotAuthorized>
+    
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
+    
+    private string title = "";
+    private string body = "";
+    private string username { get; set; }
+
+    private string resultMsg = "";
+
+    private async Task Create()
+    {
+        
+        var authState = await AuthenticationStateTask;
+        ClaimsPrincipal principal = authState.User;
+        username = (from claim in principal.Claims where claim.Type == "Username" select claim.Value).FirstOrDefault();
+        resultMsg = "";
+
+        try
+        {
+            Post post = await postService.CreateAsync(new PostCreationDTO(title, body, username));
+            navMgr.NavigateTo($"/Post/{post.Id}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            resultMsg = e.Message;
+        }
+    }
+    
+}

@@ -1,0 +1,13 @@
+﻿@page "/"
+@inject NavigationManager navMgr
+
+<h3>Index</h3>
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        navMgr.NavigateTo("/posts");
+    }
+    
+}

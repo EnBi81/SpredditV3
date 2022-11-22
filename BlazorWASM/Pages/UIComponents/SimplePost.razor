@@ -1,0 +1,41 @@
+﻿@namespace UIComponents
+
+<a href="/post/@Id">
+<div class="post">
+    <div class="votescore">
+        <span>@VoteScorePresentation</span>
+    </div>
+    <div class="content">
+        <div class="title">@Title</div>
+        <div class="username">@Username</div>
+    </div>
+</div>
+</a>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    [Parameter]
+    public string? Username { get; set; }
+    [Parameter]
+    public string? Title { get; set; }
+    [Parameter]
+    public int VoteScore { get; set; }
+
+
+    private string VoteScorePresentation
+    {
+        get
+        {
+            if (VoteScore < 1_000)
+                return VoteScore + "";
+            if (VoteScore < 1_000_000)
+                return Math.Round((double)VoteScore / 1_000, 1) + " K";
+            if (VoteScore < 1_000_000_000)
+                return Math.Round((double)VoteScore / 1_000_000, 1) + " M";
+
+            return "Too much";
+        }
+    }
+
+}

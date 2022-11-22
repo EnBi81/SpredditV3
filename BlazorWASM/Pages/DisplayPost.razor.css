@@ -1,0 +1,52 @@
+﻿img{
+    width: 50px;
+    height: 50px;
+}
+.main{
+    height: 85vh;
+    width: 95%;
+
+    display: flex;
+}
+
+.column{
+    height: 100%;
+}
+
+.column:nth-child(1){
+    width: 50%;
+}
+.column:nth-child(2){
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.column:nth-child(3){
+    width: 40%;
+    padding-top: 5vh;
+}
+
+span{
+    font-size: 25px;
+    padding: 5px;
+}
+textarea{
+    resize: none;
+    width: 100%;
+    height: 500px;
+    padding: 5px;
+}
+
+.displayComments{
+    overflow-y: auto;
+    height: 80%;
+}
+.comment{
+    padding: 5px;
+}
+.username{
+    font-size: 10px;
+    font-style: italic;
+}

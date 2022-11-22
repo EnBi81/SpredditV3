@@ -1,0 +1,68 @@
+﻿@page "/ProfilePage"
+@using SharedDomain.Models
+@using HttpClients.ClientInterfaces
+@using SharedDomain.DTOs
+@using UIComponents
+@inject IPostService postService
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
+
+<h3 class="profilePage">Profile Page</h3>
+
+<AuthorizeView>
+    <Authorized>
+        
+        <h1>Hello @username</h1>
+        
+        @if (!string.IsNullOrEmpty(msg))
+        {
+            <div>
+                <span>@msg</span>
+            </div>
+        }
+
+        @if (posts == null)
+        {
+            <span>Loading..</span>
+        }
+        else if (!posts.Any())
+        {
+            <span>No posts to be displayed</span>
+        }
+        else
+        {
+            <div>
+                @foreach (Post post in posts)
+                {
+                    <SimplePost Id="@post.Id" Title="@post.Title" Username="@post.User.Username" VoteScore="@post.VoteScore"></SimplePost>
+                    <br/>
+                }
+            </div>
+        }
+    </Authorized>
+    <NotAuthorized>
+        <h3>Please log in or register in order to view your profile page.</h3>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private IEnumerable<Post>? posts;
+    private string msg = "";
+    private string? username = null;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var authstate = await GetAuthenticationStateAsync.GetAuthenticationStateAsync();
+        var principal = authstate.User;
+        username = (from claim in principal.Claims where claim.Type == "Username" select claim.Value).FirstOrDefault();
+
+        try
+        {
+            posts = await postService.GetAsync(new PostFilterDTO{Username = username});
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+}

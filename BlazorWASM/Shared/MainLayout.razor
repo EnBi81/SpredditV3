@@ -1,0 +1,25 @@
+﻿@inherits LayoutComponentBase
+@using Login
+
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu/>
+    </div>
+
+    <main>
+        <div class="top-row">
+            <NavLink href="post/create">
+                <img src="CreatePost.png" class="createPostImg"/>
+            </NavLink>
+            <NavLink>
+                <LoginButtons/>
+            </NavLink>
+        </div>
+
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>

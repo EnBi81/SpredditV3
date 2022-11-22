@@ -1,0 +1,96 @@
+﻿@page "/Posts"
+@using SharedDomain.Models
+@using HttpClients.ClientInterfaces
+@using UIComponents
+@inject IPostService postService
+@inject NavigationManager navMgr
+<h3>Here you can see all posts. Wooow!</h3>
+
+
+<div class="filter-bar">
+    <div class="filter-container">
+        <img src="icons/@(doShowFilters ? "clear_" : "")funnel.png"
+             class="funnel" @onclick="@(() => doShowFilters = !doShowFilters)" alt="Funnel"/>
+    
+        @if (doShowFilters)
+        {
+            <div class="filter">
+                <label>Username:</label>
+                <input type="text" @bind="postUserFilter"/>
+            </div>
+            <div class="filter">
+                <label>Title contains:</label>
+                <input type="text" @bind="titleContainsFilter"/>
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <input class="button" type="button" @onclick="LoadTodos" value="Load"/>
+</div>
+
+@if (!string.IsNullOrEmpty(msg))
+{
+    <div>
+        <span>@msg</span>
+    </div>
+}
+
+else if (!posts.Any())
+{
+    <p>No Posts to display. Sorry(((</p>
+}
+else
+{
+    <br/><br/><br/>
+    @foreach (var post in posts)
+    {
+        
+        
+        
+        <SimplePost Id="@post.Id" Title="@post.Title" Username="@post.User.Username" VoteScore="@post.VoteScore"></SimplePost>
+        <br/>
+    }
+}
+
+
+
+@code {
+    private IEnumerable<Post> posts = new List<Post>();
+    private string msg = "";
+    private bool doShowFilters;
+    private string? postUserFilter;
+    private string? titleContainsFilter;
+   
+
+    protected override async Task OnInitializedAsync()
+    {
+        msg = "";
+        try
+        {
+            posts = await postService.GetAllPostsAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+    
+
+    public async Task LoadTodos()
+    {
+        try
+        {
+            posts = await postService.GetPostsByFiltering(postUserFilter, titleContainsFilter);
+            Console.WriteLine(posts);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+    
+}

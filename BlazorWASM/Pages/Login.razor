@@ -1,0 +1,63 @@
+﻿@page "/Login"
+@inject Auth.IAuthService authService
+@inject NavigationManager navMgr
+
+<AuthorizeView>
+    <NotAuthorized>
+        <div class="card">
+            <h3>Login</h3>
+            <div class="field">
+                <label>Username:</label>
+                <input type="text" @bind="userName"/>
+            </div>
+            
+            <div class="field">
+                <label>Password:</label>
+                <input type="password" @bind="password"/>
+            </div>
+            @if (!string.IsNullOrEmpty(errorLabel))
+            {
+                <div class="field">
+                    <label style="color:red">
+                        @errorLabel
+                    </label>
+                </div>
+            }
+            <div class="field">
+                <button class="loginbtn" @onclick="LoginAsync">Log in</button>
+            </div>
+            <div>
+                Or register <a href="/Register">here</a>!
+            </div>
+        </div>
+    </NotAuthorized>
+    
+    <Authorized>
+        <div class="card">
+            <h3>Hello, @context.User.Identity?.Name, welcome to Spreddit!</h3>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    private string? userName;
+    private string? password;
+    private string? errorLabel;
+
+    public async Task LoginAsync()
+    {
+        errorLabel = "";
+        try
+        {
+            if (userName != null && password != null) await authService.LoginAsync(userName, password);
+            navMgr.NavigateTo("/ProfilePage");
+            
+            
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            errorLabel = $"Error: {e}";
+        }
+    }
+}
